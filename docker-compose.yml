@@ -2,20 +2,6 @@ version: "3"
 
 services:
 
-  ssr:
-    image: orvice/shadowsocksr
-    restart: always
-    volumes:
-      - ./ssr/config.json:/usr/src/app/config.json
-      - ./log/ssr:/var/log/ssr
-    env_file:
-      - mu.env
-    logging:
-      driver: json-file
-      options:
-         max-size: "200k"
-         max-file: "10"
-    network_mode: host
 
   v2ray:
     image: v2ray/official
@@ -41,15 +27,4 @@ services:
     env_file:
       - mu.env
  
-  monitor-client:
-    image: orvice/monitor-client
-    restart: always
-    volumes:
-      - ./monitor_client_log:/var/log
-    environment:
-      - NET_INTERFACE=eth0
-      - WEB_ADDr=:8080
-    container_name: monitor-client
-    ports:
-      - 8080:8080
 
