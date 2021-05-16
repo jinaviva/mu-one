@@ -15,7 +15,7 @@ services:
 
 
   v2ray-mu:
-    image: jinaviva/v2ray-mu:dev
+    image: jinaviva/v2ray-mu:v1.1
     restart: always
     volumes:
       - ./log/v2ray-mu:/var/log/v2ray-mu
